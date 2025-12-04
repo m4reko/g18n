@@ -306,8 +306,8 @@ Use generated translations:
 import my_project/translations
 import g18n
 
-let assert Ok(en_translator) = translations.en_translator()
-let assert Ok(es_translator) = translations.es_translator()
+let en_translator = translations.en_translator()
+let es_translator = translations.es_translator()
 
 g18n.translate(en_translator, "welcome")  // "Welcome {name}!"
 g18n.translate(es_translator, "welcome")  // "¡Bienvenido {name}!"
