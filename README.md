@@ -17,7 +17,7 @@ A comprehensive internationalization library for Gleam with multi-language suppo
 - 🔤 **Hierarchical Translations** - Efficient trie-based storage with namespace support
 - ⏰ **Relative Time** - "2 hours ago", "hace 3 días", "2時間前" in all languages
 - ✅ **Translation Validation** - Built-in completeness checking and coverage reports
-- 🛠️ **CLI Code Generation** - Auto-generate type-safe modules from JSON/PO files (via separate g18n-dev package)
+- 🛠️ **CLI Code Generation** - Auto-generate type-safe modules from JSON/PO files (via separate g18n_dev package)
 
 ## Installation
 
@@ -226,10 +226,10 @@ msgstr "Welcome {name}! You have {count} notifications."
 
 ## CLI Code Generation
 
-**Note: CLI functionality has been moved to the separate [g18n-dev](https://hex.pm/packages/g18n-dev) package to keep the core g18n library browser-compatible. Install g18n-dev as a dev dependency for code generation.**
+**Note: CLI functionality has been moved to the separate [g18n_dev](https://hex.pm/packages/g18n_dev) package to keep the core g18n library browser-compatible. Install g18n_dev as a dev dependency for code generation.**
 
 ```sh
-gleam add --dev g18n-dev
+gleam add --dev g18n_dev
 ```
 
 Place translation files in `src/<project>/translations/` directory:
@@ -306,8 +306,8 @@ Use generated translations:
 import my_project/translations
 import g18n
 
-let assert Ok(en_translator) = translations.en_translator()
-let assert Ok(es_translator) = translations.es_translator()
+let en_translator = translations.en_translator()
+let es_translator = translations.es_translator()
 
 g18n.translate(en_translator, "welcome")  // "Welcome {name}!"
 g18n.translate(es_translator, "welcome")  // "¡Bienvenido {name}!"
@@ -340,7 +340,7 @@ g18n.format_relative_time(translator, g18n.Hours(2), g18n.Past)
 
 - **Translation validation**: Check completeness across locales
 - **Coverage reports**: Track translation progress  
-- **JSON/PO → Gleam**: Auto-generate type-safe translation modules (via g18n-dev package)
+- **JSON/PO → Gleam**: Auto-generate type-safe translation modules (via g18n_dev package)
 - **Namespace queries**: Efficiently find related translations
 
 ## Development
